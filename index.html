@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Web académica y profesional de Fernando Díez Ruiz: liderazgo, comportamiento organizacional, recursos humanos, educación y transferencia de conocimiento." />
+  <title>Fernando Díez Ruiz · Profesor e Investigador</title>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --bg-2:#111c33;
+      --panel:#14213d;
+      --panel-2:#172642;
+      --text:#e9eef8;
+      --muted:#98a8c3;
+      --line:#2a3a59;
+      --accent:#57d8d2;
+      --accent-2:#7ee5df;
+      --warm:#f3c46b;
+      --shadow:0 22px 65px rgba(0,0,0,.22);
+      --radius:20px;
+      --max:1280px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 86% 10%, rgba(87,216,210,.09), transparent 26%),
+        radial-gradient(circle at 5% 80%, rgba(243,196,107,.05), transparent 20%),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .site-shell{max-width:var(--max); margin:0 auto; padding:0 32px}
+    .topbar{
+      position:fixed; inset:0 0 auto 0; height:72px; z-index:30;
+      backdrop-filter: blur(16px);
+      background:rgba(15,23,42,.78);
+      border-bottom:1px solid rgba(152,168,195,.12);
+    }
+    .topbar-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:760;letter-spacing:.01em}
+    .brand-dot{width:10px;height:10px;border-radius:99px;background:var(--accent);box-shadow:0 0 22px rgba(87,216,210,.75)}
+    .top-actions{display:flex;align-items:center;gap:10px}
+    .pill-link{
+      color:var(--muted); border:1px solid rgba(152,168,195,.2); padding:8px 12px; border-radius:999px;
+      transition:.2s ease; font-size:.9rem;
+    }
+    .pill-link:hover{color:var(--text);border-color:rgba(87,216,210,.7);box-shadow:0 0 24px rgba(87,216,210,.12)}
+    .layout{display:grid;grid-template-columns:340px minmax(0,1fr);gap:68px;padding-top:104px}
+    .sidebar{
+      position:sticky;top:104px;align-self:start;height:calc(100vh - 125px);
+      display:flex;flex-direction:column;justify-content:space-between;padding:12px 0 20px;
+    }
+    .portrait-wrap{display:flex;align-items:center;gap:18px;margin-bottom:24px}
+    .portrait{
+      width:84px;height:84px;border-radius:24px;overflow:hidden;flex:none;
+      background:linear-gradient(145deg,#223354,#18263f);border:1px solid rgba(126,229,223,.28);
+      box-shadow:0 18px 42px rgba(0,0,0,.24),0 0 38px rgba(87,216,210,.08);
+    }
+    .portrait img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}
+    h1{font-size:clamp(2.45rem,5vw,4.4rem);line-height:.98;letter-spacing:-.05em;margin:0 0 12px}
+    .role{font-size:1.24rem;font-weight:680;margin:0 0 14px;color:#dfe7f5}
+    .tagline{color:var(--muted);font-size:1.04rem;max-width:315px;margin:0}
+    .side-nav{display:flex;flex-direction:column;gap:4px;margin-top:36px}
+    .side-nav a{
+      display:grid;grid-template-columns:56px auto;align-items:center;gap:16px;
+      padding:10px 0;color:#7687a6;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:800;
+      transition:.2s ease;
+    }
+    .side-nav .line{height:1px;background:#4b5c78;transition:.2s ease;width:40px}
+    .side-nav a:hover,.side-nav a.active{color:#f3f6fb;text-shadow:0 0 20px rgba(87,216,210,.18)}
+    .side-nav a:hover .line,.side-nav a.active .line{background:var(--accent);width:56px;box-shadow:0 0 16px rgba(87,216,210,.5)}
+    .socials{display:flex;flex-wrap:wrap;gap:10px}
+    .socials a{
+      width:42px;height:42px;border-radius:13px;display:grid;place-items:center;
+      border:1px solid rgba(152,168,195,.16);color:#a5b5ce;background:rgba(255,255,255,.018);
+      transition:.2s ease;font-size:.78rem;font-weight:800;
+    }
+    .socials a:hover{transform:translateY(-2px);color:var(--accent);border-color:rgba(87,216,210,.65);box-shadow:0 0 30px rgba(87,216,210,.11)}
+    main{min-width:0}
+    section{padding:30px 0 82px;scroll-margin-top:95px}
+    .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.15em;font-size:.74rem;font-weight:850;margin-bottom:12px}
+    .section-title{font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:-.035em;line-height:1.08;margin:0 0 18px}
+    .lead{color:#aebbd1;font-size:1.08rem;max-width:820px;margin:0 0 22px}
+    .hero-copy{font-size:1.18rem;color:#9cacC7;max-width:840px}
+    .hero-copy strong{color:#e5ecf8}
+    .hero-links{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 34px}
+    .cta{
+      display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(87,216,210,.34);border-radius:12px;
+      padding:11px 14px;color:#dce7f5;background:linear-gradient(180deg,rgba(87,216,210,.085),rgba(87,216,210,.025));
+      transition:.2s ease;font-weight:700;font-size:.92rem;
+    }
+    .cta:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 12px 30px rgba(0,0,0,.18),0 0 25px rgba(87,216,210,.11);color:#fff}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+    .stat{
+      position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(23,38,66,.94),rgba(17,28,51,.92));
+      border:1px solid rgba(152,168,195,.14);border-radius:16px;padding:22px 20px;transition:.22s ease;
+    }
+    .stat::after{content:"";position:absolute;inset:auto -30px -45px auto;width:100px;height:100px;border-radius:999px;background:radial-gradient(circle,rgba(87,216,210,.16),transparent 67%)}
+    .stat:hover{transform:translateY(-4px);border-color:rgba(87,216,210,.58);box-shadow:0 18px 50px rgba(0,0,0,.18),0 0 34px rgba(87,216,210,.07)}
+    .stat b{display:block;font-size:1.95rem;letter-spacing:-.05em;line-height:1;color:#f5f8fc;margin-bottom:8px}
+    .stat span{color:#8fa0ba;font-size:.89rem}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .card{
+      background:linear-gradient(145deg,rgba(21,35,62,.95),rgba(18,31,55,.9));
+      border:1px solid rgba(152,168,195,.14);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;
+      transition:.22s ease;min-height:160px;
+    }
+    .card::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 55%,rgba(87,216,210,.045));opacity:0;transition:.25s ease;pointer-events:none}
+    .card:hover{transform:translateY(-4px);border-color:rgba(87,216,210,.55);box-shadow:var(--shadow),0 0 30px rgba(87,216,210,.06)}
+    .card:hover::before{opacity:1}
+    .card-year{font-size:.78rem;color:#8394b0;font-weight:800;letter-spacing:.08em;margin-bottom:8px}
+    .card h3{font-size:1.04rem;line-height:1.35;margin:0 0 8px;letter-spacing:-.015em}
+    .card p{color:#8fa0ba;margin:0;font-size:.91rem}
+    .card a.out{display:inline-flex;margin-top:15px;color:var(--accent);font-weight:750;font-size:.85rem}
+    .timeline{display:grid;gap:12px}
+    .timeline-item{display:grid;grid-template-columns:155px minmax(0,1fr);gap:24px;padding:18px 20px;border-radius:16px;border:1px solid rgba(152,168,195,.12);background:rgba(255,255,255,.015);transition:.2s ease}
+    .timeline-item:hover{background:rgba(87,216,210,.035);border-color:rgba(87,216,210,.35);box-shadow:0 0 25px rgba(87,216,210,.05)}
+    .timeline-item .where{font-weight:820;color:#dce6f3}
+    .timeline-item .what{color:#9cadc7}
+    .timeline-item .what strong{color:#eef3fa}
+    .highlight{
+      border:1px solid rgba(87,216,210,.32);background:linear-gradient(135deg,rgba(87,216,210,.085),rgba(20,33,61,.95));
+      border-radius:20px;padding:26px 28px;margin:18px 0 28px;box-shadow:0 16px 50px rgba(0,0,0,.12);
+    }
+    .highlight h3{margin:0 0 7px;font-size:1.2rem}.highlight p{margin:0;color:#a6b6cd}
+    .research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .research-pill{padding:18px;border-radius:16px;border:1px solid rgba(152,168,195,.13);background:rgba(255,255,255,.018);color:#b1bfd3;transition:.2s ease}
+    .research-pill:hover{color:#f4f7fb;border-color:rgba(87,216,210,.48);background:rgba(87,216,210,.04);transform:translateY(-3px)}
+    .filters{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0}
+    .filter-btn{cursor:pointer;border:1px solid rgba(152,168,195,.18);color:#93a4be;background:rgba(255,255,255,.015);padding:9px 13px;border-radius:999px;transition:.2s ease}
+    .filter-btn:hover,.filter-btn.active{color:#09131f;background:var(--accent);border-color:var(--accent);box-shadow:0 0 26px rgba(87,216,210,.2)}
+    .pub-grid{display:grid;gap:13px}
+    .pub{
+      display:grid;grid-template-columns:104px minmax(0,1fr) 26px;gap:16px;align-items:start;
+      padding:19px 20px;border:1px solid rgba(152,168,195,.13);border-radius:16px;background:rgba(255,255,255,.018);transition:.22s ease;
+    }
+    .pub:hover{transform:translateX(5px);border-color:rgba(87,216,210,.48);background:linear-gradient(90deg,rgba(87,216,210,.045),rgba(255,255,255,.018));box-shadow:0 0 32px rgba(87,216,210,.05)}
+    .pub.hide{display:none}
+    .pub-meta{font-size:.76rem;color:#7487a6;text-transform:uppercase;letter-spacing:.09em;font-weight:820}
+    .pub-title{font-size:1rem;font-weight:760;line-height:1.38;color:#edf3fb}
+    .pub-desc{font-size:.88rem;color:#899ab4;margin-top:5px}
+    .arrow{font-size:1.18rem;color:#7084a3;transition:.2s ease}.pub:hover .arrow{color:var(--accent);transform:translate(2px,-2px)}
+    .contact-panel{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+    .contact-box{border-radius:20px;padding:26px;border:1px solid rgba(152,168,195,.14);background:linear-gradient(145deg,rgba(21,35,62,.95),rgba(18,31,55,.9))}
+    .contact-box p{color:#9cafca;margin-top:0}.contact-box .email{font-size:1.08rem;font-weight:800;color:var(--accent)}
+    .footer{border-top:1px solid rgba(152,168,195,.11);color:#71819c;font-size:.82rem;padding:22px 0 36px}
+    .mobile-menu{display:none}
+    @media(max-width:980px){
+      .layout{grid-template-columns:1fr;gap:10px;padding-top:98px}
+      .sidebar{position:relative;top:auto;height:auto;padding-bottom:18px}
+      .side-nav{display:none}.socials{margin-top:20px}
+      .portrait-wrap{margin-bottom:16px}.tagline{max-width:720px}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .research-grid{grid-template-columns:repeat(2,1fr)}
+      .top-actions .pill-link:nth-child(n+3){display:none}
+    }
+    @media(max-width:680px){
+      .site-shell{padding:0 18px}.topbar{height:64px}.layout{padding-top:82px}
+      .brand span:last-child{font-size:.93rem}.top-actions{gap:6px}.pill-link{padding:7px 9px;font-size:.78rem}
+      h1{font-size:2.55rem}.role{font-size:1.05rem}.hero-copy{font-size:1.03rem}
+      section{padding-bottom:58px}.stats,.cards,.research-grid,.contact-panel{grid-template-columns:1fr}
+      .timeline-item{grid-template-columns:1fr;gap:5px}.pub{grid-template-columns:1fr 24px}.pub-meta{grid-column:1/-1}.pub .arrow{grid-column:2;grid-row:2}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="site-shell topbar-inner">
+      <a href="#inicio" class="brand"><span class="brand-dot"></span><span>Fernando Díez Ruiz</span></a>
+      <div class="top-actions">
+        <a class="pill-link" href="mailto:fdiez@deusto.es">Email</a>
+        <a class="pill-link" href="https://orcid.org/0000-0002-7522-5189" target="_blank" rel="noopener">ORCID</a>
+        <a class="pill-link" href="https://scholar.google.com/citations?user=rEENA14AAAAJ" target="_blank" rel="noopener">Scholar</a>
+        <a class="pill-link" href="https://portalinvestigacion.deusto.es/investigadores/1205728/detalle" target="_blank" rel="noopener">Deusto</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="site-shell layout">
+    <aside class="sidebar">
+      <div>
+        <div class="portrait-wrap">
+          <div class="portrait">
+            <img src="https://portalinvestigacion.deusto.es/img/uploaded/75d9e6c1075bc5d997abf34511966b71.jpeg" alt="Fernando Díez Ruiz" />
+          </div>
+        </div>
+        <h1>Fernando<br>Díez Ruiz</h1>
+        <p class="role">Profesor · Investigador · Autor</p>
+        <p class="tagline">Liderazgo, comportamiento organizacional, recursos humanos, educación y transferencia de conocimiento.</p>
+
+        <nav class="side-nav" aria-label="Navegación principal">
+          <a href="#inicio" class="active"><span class="line"></span><span>Inicio</span></a>
+          <a href="#perfil"><span class="line"></span><span>Perfil</span></a>
+          <a href="#experiencia"><span class="line"></span><span>Experiencia</span></a>
+          <a href="#investigacion"><span class="line"></span><span>Investigación</span></a>
+          <a href="#produccion"><span class="line"></span><span>Producción</span></a>
+          <a href="#contacto"><span class="line"></span><span>Contacto</span></a>
+        </nav>
+      </div>
+      <div class="socials" aria-label="Perfiles académicos">
+        <a href="https://orcid.org/0000-0002-7522-5189" target="_blank" rel="noopener" title="ORCID">OR</a>
+        <a href="https://scholar.google.com/citations?user=rEENA14AAAAJ" target="_blank" rel="noopener" title="Google Scholar">GS</a>
+        <a href="https://www.researchgate.net/profile/Fernando-Diez" target="_blank" rel="noopener" title="ResearchGate">RG</a>
+        <a href="https://dialnet.unirioja.es/servlet/autor?codigo=1271516" target="_blank" rel="noopener" title="Dialnet">DI</a>
+        <a href="https://portalinvestigacion.deusto.es/investigadores/1205728/detalle" target="_blank" rel="noopener" title="Portal de Investigación Deusto">UD</a>
+      </div>
+    </aside>
+
+    <main>
+      <section id="inicio">
+        <div class="eyebrow">Academic & professional profile</div>
+        <h2 class="section-title">Investigación rigurosa, liderazgo humanista y aplicación real.</h2>
+        <div class="hero-copy">
+          <p>Profesor e investigador de la <strong>Universidad de Deusto</strong>, especializado en <strong>liderazgo, comportamiento organizacional y gestión de personas</strong>. Mi trayectoria combina docencia universitaria, dirección y transferencia, investigación aplicada y divulgación científica.</p>
+          <p>Trabajo en la intersección entre <strong>personas, organizaciones y educación</strong>, con especial interés por los modelos de liderazgo emergentes, el desarrollo del talento, la transferencia de conocimiento y la mejora de las organizaciones.</p>
+        </div>
+        <div class="hero-links">
+          <a class="cta" href="https://portalinvestigacion.deusto.es/investigadores/1205728/detalle" target="_blank" rel="noopener">Portal de investigación ↗</a>
+          <a class="cta" href="https://scholar.google.com/citations?user=rEENA14AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+          <a class="cta" href="https://orcid.org/0000-0002-7522-5189" target="_blank" rel="noopener">ORCID ↗</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><b>40+</b><span>artículos científicos Q1–Q2</span></div>
+          <div class="stat"><b>50+</b><span>capítulos de libro en editoriales SPI</span></div>
+          <div class="stat"><b>9</b><span>libros publicados</span></div>
+          <div class="stat"><b>28</b><span>proyectos de investigación · 15 como IP</span></div>
+          <div class="stat"><b>70+</b><span>congresos y comunicaciones</span></div>
+          <div class="stat"><b>90+</b><span>artículos divulgativos</span></div>
+        </div>
+      </section>
+
+      <section id="perfil">
+        <div class="eyebrow">Perfil</div>
+        <h2 class="section-title">Formación y enfoque</h2>
+        <p class="lead">Doctor en Educación, MBA-Executive y licenciado en Psicología y Pedagogía por la Universidad de Deusto. Formación adicional en alta dirección y gestión empresarial.</p>
+
+        <div class="highlight">
+          <h3>Una trayectoria transversal</h3>
+          <p>Más de dos décadas de docencia universitaria y experiencia de gestión, conectando investigación, empresa, educación y desarrollo de personas. El objetivo es convertir la evidencia académica en modelos y herramientas útiles para profesionales y organizaciones.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-year">DOCENCIA</div>
+            <h3>Universidad de Deusto · Deusto Business School</h3>
+            <p>Docencia en liderazgo, comportamiento organizacional, dirección de personas, gestión del talento y educación, en grado, máster, MBA/EMBA y doctorado.</p>
+          </article>
+          <article class="card">
+            <div class="card-year">COLABORACIÓN ACADÉMICA</div>
+            <h3>Advantere · ICADE Business School</h3>
+            <p>Participación docente en programas de talent management, recursos humanos, habilidades directivas y comportamiento organizacional.</p>
+          </article>
+          <article class="card">
+            <div class="card-year">GESTIÓN</div>
+            <h3>Investigación, transferencia y publicaciones</h3>
+            <p>Experiencia como Director de DEIKER-OTRI y Publicaciones, y como Director Adjunto de Fundación Deusto.</p>
+          </article>
+          <article class="card">
+            <div class="card-year">ACREDITACIÓN</div>
+            <h3>Trayectoria académica consolidada</h3>
+            <p>Acreditación ANECA y UNIBASQ, dirección de tesis, proyectos competitivos y contratados, y producción científica internacional.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experiencia">
+        <div class="eyebrow">Experiencia</div>
+        <h2 class="section-title">Actividad académica, dirección y transferencia</h2>
+        <div class="timeline">
+          <div class="timeline-item"><div class="where">Universidad de Deusto</div><div class="what"><strong>Profesor e investigador.</strong> Liderazgo, comportamiento organizacional, RRHH y educación. Participación en Escuela de Doctorado y programas de posgrado.</div></div>
+          <div class="timeline-item"><div class="where">Deusto Business School</div><div class="what"><strong>MBA / EMBA / RRHH.</strong> Dirección de personas, liderazgo, equipos, comunicación, propósito, motivación y cambio.</div></div>
+          <div class="timeline-item"><div class="where">Advantere</div><div class="what"><strong>Master in Talent Management.</strong> Desarrollo del talento y habilidades de dirección.</div></div>
+          <div class="timeline-item"><div class="where">ICADE / Comillas</div><div class="what"><strong>Colaboración docente.</strong> Liderazgo, recursos humanos y comportamiento organizacional.</div></div>
+          <div class="timeline-item"><div class="where">Gestión universitaria</div><div class="what"><strong>Transferencia y publicaciones.</strong> Dirección de OTRI-DEIKER, publicaciones y funciones de gestión en Fundación Deusto.</div></div>
+        </div>
+      </section>
+
+      <section id="investigacion">
+        <div class="eyebrow">Investigación</div>
+        <h2 class="section-title">Líneas de investigación</h2>
+        <p class="lead">La agenda investigadora combina teoría, validación empírica y transferencia a organizaciones, con una orientación especialmente aplicada.</p>
+        <div class="research-grid">
+          <div class="research-pill"><strong>Liderazgo silencioso</strong><br><small>Influencia sin protagonismo, escala SLS y modelo de visibilidad × influencia.</small></div>
+          <div class="research-pill"><strong>Liderazgo y zonas grises</strong><br><small>Ambigüedad, protección organizativa, ética y contextos de liderazgo complejo.</small></div>
+          <div class="research-pill"><strong>Gestión de personas</strong><br><small>Talento, digitalización de RRHH, compromiso, bienestar y entorno de práctica.</small></div>
+          <div class="research-pill"><strong>Transferencia de conocimiento</strong><br><small>Relevo generacional, retención del conocimiento y aprendizaje organizativo.</small></div>
+          <div class="research-pill"><strong>Educación</strong><br><small>Evaluación, liderazgo educativo, calidad, aprendizaje y competencias socioemocionales.</small></div>
+          <div class="research-pill"><strong>Seguridad y liderazgo</strong><br><small>Resiliencia, fortalezas, inteligencia emocional y toma de decisiones en contextos profesionales.</small></div>
+        </div>
+      </section>
+
+      <section id="produccion">
+        <div class="eyebrow">Producción científica</div>
+        <h2 class="section-title">Publicaciones, proyectos y transferencia</h2>
+        <p class="lead">Selección inicial organizada por tipo de producción. La estructura está preparada para incorporar el catálogo completo del CV o del Portal de Investigación.</p>
+
+        <div class="filters" role="tablist" aria-label="Filtrar producción científica">
+          <button class="filter-btn active" data-filter="all">Todo</button>
+          <button class="filter-btn" data-filter="libros">Libros</button>
+          <button class="filter-btn" data-filter="capitulos">Capítulos</button>
+          <button class="filter-btn" data-filter="articulos">Artículos</button>
+          <button class="filter-btn" data-filter="divulgacion">Divulgación</button>
+          <button class="filter-btn" data-filter="congresos">Congresos</button>
+          <button class="filter-btn" data-filter="proyectos">Proyectos</button>
+          <button class="filter-btn" data-filter="registros">Propiedad intelectual</button>
+        </div>
+
+        <div class="pub-grid">
+          <a class="pub" data-cat="libros" href="#" aria-label="Liderazgo silencioso">
+            <div class="pub-meta">Libro · 2026</div><div><div class="pub-title">Liderazgo silencioso. Un nuevo modelo para comprender y medir la influencia sin protagonismo</div><div class="pub-desc">Con Elene Igoa, Elena Quevedo y Josune Baniandrés. Modelo de cinco dimensiones y Silent Leadership Scale (SLS).</div></div><div class="arrow">↗</div>
+          </a>
+          <a class="pub" data-cat="articulos" href="https://doi.org/10.1108/CG-05-2024-0311" target="_blank" rel="noopener">
+            <div class="pub-meta">Artículo · 2025</div><div><div class="pub-title">Gender differences in leadership styles: insights from Basque Country enterprises</div><div class="pub-desc">Corporate Governance · Emerald Publishing.</div></div><div class="arrow">↗</div>
+          </a>
+          <a class="pub" data-cat="articulos" href="https://scholar.google.com/citations?user=rEENA14AAAAJ" target="_blank" rel="noopener">
+            <div class="pub-meta">Artículo · 2024</div><div><div class="pub-title">Procedures for transferring organizational knowledge during generational change: A systematic review</div><div class="pub-desc">Heliyon · Transferencia del conocimiento y relevo generacional.</div></div><div class="arrow">↗</div>
+          </a>
+          <a class="pub" data-cat="articulos" href="https://scholar.google.com/citations?user=rEENA14AAAAJ" target="_blank" rel="noopener">
+            <div class="pub-meta">Artículo · 2024</div><div><div class="pub-title">Talent Management Digitalization and Company Size as a Catalyst</div><div class="pub-desc">Systems · Digitalización de la gestión del talento.</div></div><div class="arrow">↗</div>
+          </a>
+          <a class="pub" data-cat="articulos" href="https://scholar.google.com/citations?user=rEENA14AAAAJ" target="_blank" rel="noopener">
+            <div class="pub-meta">Artículo · 2023</div><div><div class="pub-title">The learning process to become a military leader: born, background and lifelong learning</div><div class="pub-desc">Frontiers in Education · Liderazgo y aprendizaje a lo largo de la vida.</div></div><div class="arrow">↗</div>
+          </a>
+          <a class="pub" data-cat="articulos" href="https://portalinvestigacion.deusto.es/documentos/69b0395a2cb38428f3fc1394" target="_blank" rel="noopener">
+            <div class="pub-meta">Artículo · 2026</div><div><div class="pub-title">Compromiso organizacional en enfermería: diferencias según sector y nivel de responsabilidad</div><div class="pub-desc">Enfermería Clínica · Compromiso laboral en profesionales de enfermería.</div></div><div class="arrow">↗</div>
+          </a>
+          <div class="pub" data-cat="capitulos">
+            <div class="pub-meta">Capítulos</div><div><div class="pub-title">Más de 50 capítulos de libro</div><div class="pub-desc">Contribuciones en liderazgo, educación, talento, recursos humanos, competencias socioemocionales y transferencia de conocimiento.</div></div><div class="arrow">→</div>
+          </div>
+          <a class="pub" data-cat="divulgacion" href="https://blogs.deusto.es/viviendodeusto/2026/06/01/fernando-diez-elene-igoa-elena-quevedo-y-josune-baniandres-el-liderazgo-silencioso-impulsa-una-nueva-forma-de-influir-en-las-organizaciones/" target="_blank" rel="noopener">
+            <div class="pub-meta">Divulgación · 2026</div><div><div class="pub-title">El liderazgo silencioso impulsa una nueva forma de influir en las organizaciones</div><div class="pub-desc">Capital Humano · Nº 420.</div></div><div class="arrow">↗</div>
+          </a>
+          <a class="pub" data-cat="divulgacion" href="https://blogs.deusto.es/viviendodeusto/2026/09/08/elene-igoa-fernando-diez-y-elena-quevedo-y-usted-que-se-lleva-a-casa-al-terminar-su-jornada-de-trabajo/" target="_blank" rel="noopener">
+            <div class="pub-meta">Divulgación · 2026</div><div><div class="pub-title">Y usted, ¿qué se lleva a casa al terminar su jornada de trabajo?</div><div class="pub-desc">Artículo publicado originalmente en The Conversation.</div></div><div class="arrow">↗</div>
+          </a>
+          <div class="pub" data-cat="congresos">
+            <div class="pub-meta">Congresos</div><div><div class="pub-title">Más de 70 congresos y comunicaciones científicas</div><div class="pub-desc">Participación nacional e internacional en liderazgo, gestión de personas, educación, seguridad, competencias y sector marítimo.</div></div><div class="arrow">→</div>
+          </div>
+          <div class="pub" data-cat="proyectos">
+            <div class="pub-meta">Proyecto · 2026–27</div><div><div class="pub-title">Bienestar organizacional en enfermería</div><div class="pub-desc">Entorno de práctica, engagement, intención de abandono, violencia laboral y género.</div></div><div class="arrow">→</div>
+          </div>
+          <div class="pub" data-cat="proyectos">
+            <div class="pub-meta">Proyecto · 2026</div><div><div class="pub-title">Liderazgo, fortalezas, resiliencia e inteligencia emocional en profesionales militares</div><div class="pub-desc">Estudio aplicado sobre estilos de liderazgo, decisión, resiliencia, fortalezas e inteligencia emocional.</div></div><div class="arrow">→</div>
+          </div>
+          <div class="pub" data-cat="proyectos">
+            <div class="pub-meta">Proyecto · 2026</div><div><div class="pub-title">Competencias y cuellos de botella en el ecosistema marítimo europeo</div><div class="pub-desc">Necesidad organizativa y dificultad de reclutamiento de competencias clave en empresas del sector marítimo.</div></div><div class="arrow">→</div>
+          </div>
+          <div class="pub" data-cat="registros">
+            <div class="pub-meta">Propiedad intelectual</div><div><div class="pub-title">Modelo de Liderazgo Silencioso y Silent Leadership Scale (SLS)</div><div class="pub-desc">Desarrollo conceptual y escala orientativa para identificar patrones compatibles con liderazgo silencioso.</div></div><div class="arrow">→</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <div class="eyebrow">Contacto</div>
+        <h2 class="section-title">Colaboración académica y transferencia</h2>
+        <div class="contact-panel">
+          <div class="contact-box">
+            <p>Para colaboración en investigación, proyectos, docencia ejecutiva, dirección académica, revisión de manuscritos o transferencia de conocimiento.</p>
+            <a class="email" href="mailto:fdiez@deusto.es">fdiez@deusto.es</a>
+          </div>
+          <div class="contact-box">
+            <p><strong>Universidad de Deusto</strong><br>Bilbao · España</p>
+            <a class="cta" href="https://portalinvestigacion.deusto.es/investigadores/1205728/detalle" target="_blank" rel="noopener">Perfil institucional ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">© <span id="year"></span> Fernando Díez Ruiz · Web académica y profesional.</footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const filterButtons = [...document.querySelectorAll('.filter-btn')];
+    const pubs = [...document.querySelectorAll('.pub')];
+    filterButtons.forEach(btn => btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      pubs.forEach(pub => pub.classList.toggle('hide', filter !== 'all' && pub.dataset.cat !== filter));
+    }));
+
+    const navLinks = [...document.querySelectorAll('.side-nav a')];
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, {rootMargin:'-28% 0px -55% 0px', threshold:0});
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
